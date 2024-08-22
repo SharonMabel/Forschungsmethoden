@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prozesscharakter der Forschung</title>
+</head>
+<body>
+    <h2>Prozesscharakter der Forschung</h2>
+    <p>Fülle die Lücken:</p>
+    <form id="quiz3">
+        <label>
+            In der qualitativen Forschung sind
+            <input type="text" id="q1" placeholder="Lücke 1"> und
+            <input type="text" id="q2" placeholder="Lücke 2"> der Menschen nicht fest und unveränderlich, sondern sie offenbaren die
+            <input type="text" id="q3" placeholder="Lücke 3"> der sozialen Welt.
+        </label><br><br>
+
+        <label>
+            Die Forschung ist ein
+            <input type="text" id="q4" placeholder="Lücke 4">, in dem sowohl der Gegenstand als auch der Forscher in ständiger
+            <input type="text" id="q5" placeholder="Lücke 5"> sind.
+        </label><br><br>
+
+        <input type="button" value="Antworten prüfen" onclick="checkAnswers()">
+    </form>
+    <p id="result"></p>
+
+    <script>
+        function checkAnswers() {
+            var score = 0;
+            if (document.getElementById('q1').value.toLowerCase() === "verhaltensweisen") score++;
+            if (document.getElementById('q2').value.toLowerCase() === "aussagen") score++;
+            if (document.getElementById('q3').value.toLowerCase() === "tiefere wahrheit") score++;
+            if (document.getElementById('q4').value.toLowerCase() === "lebendiger prozess") score++;
+            if (document.getElementById('q5').value.toLowerCase() === "veränderung") score++;
+            document.getElementById('result').innerText = "Du hast " + score + " von 5 richtig!";
+        }
+    </script>
+</body>
+</html>

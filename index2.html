@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offenheit</title>
+</head>
+<body>
+    <h2>Offenheit in der Forschung</h2>
+    <form id="quiz2">
+        <p>Ordne die Prinzipien den richtigen Beispielen zu:</p>
+
+        <label>1. Offenheit gegenüber der Untersuchungsperson</label><br>
+        <select id="q1">
+            <option value="0">Wähle ein Beispiel</option>
+            <option value="1">Der Forscher passt seine Fragen an die Reaktionen der Interviewten an.</option>
+            <option value="2">Der Forscher lässt die Untersuchungsperson ihre eigene Geschichte erzählen.</option>
+            <option value="3">Der Forscher verwendet verschiedene Methoden, um ein Phänomen zu untersuchen.</option>
+        </select><br><br>
+
+        <label>2. Offenheit gegenüber der Untersuchungssituation</label><br>
+        <select id="q2">
+            <option value="0">Wähle ein Beispiel</option>
+            <option value="1">Der Forscher passt seine Fragen an die Reaktionen der Interviewten an.</option>
+            <option value="2">Der Forscher lässt die Untersuchungsperson ihre eigene Geschichte erzählen.</option>
+            <option value="3">Der Forscher verwendet verschiedene Methoden, um ein Phänomen zu untersuchen.</option>
+        </select><br><br>
+
+        <label>3. Offenheit gegenüber den anzuwendenden Methoden</label><br>
+        <select id="q3">
+            <option value="0">Wähle ein Beispiel</option>
+            <option value="1">Der Forscher passt seine Fragen an die Reaktionen der Interviewten an.</option>
+            <option value="2">Der Forscher lässt die Untersuchungsperson ihre eigene Geschichte erzählen.</option>
+            <option value="3">Der Forscher verwendet verschiedene Methoden, um ein Phänomen zu untersuchen.</option>
+        </select><br><br>
+
+        <input type="button" value="Antworten prüfen" onclick="checkAnswers()">
+    </form>
+    <p id="result"></p>
+
+    <script>
+        function checkAnswers() {
+            var score = 0;
+            if (document.getElementById('q1').value === "2") score++;
+            if (document.getElementById('q2').value === "1") score++;
+            if (document.getElementById('q3').value === "3") score++;
+            document.getElementById('result').innerText = "Du hast " + score + " von 3 richtig!";
+        }
+    </script>
+</body>
+</html>

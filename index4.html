@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflexivität</title>
+</head>
+<body>
+    <h2>Reflexivität</h2>
+    <form id="quiz4">
+        <label>1. Reflexivität bedeutet, dass die Bedeutungen von Handlungen unabhängig vom Kontext verstanden werden können.</label><br>
+        <input type="radio" name="q1" value="Falsch"> Falsch<br>
+        <input type="radio" name="q1" value="Richtig"> Richtig<br><br>
+
+        <label>2. Methoden in der Forschung müssen flexibel und anpassungsfähig sein, um den sozialen Kontext zu erfassen.</label><br>
+        <input type="radio" name="q2" value="Falsch"> Falsch<br>
+        <input type="radio" name="q2" value="Richtig"> Richtig<br><br>
+
+        <input type="button" value="Antworten prüfen" onclick="checkAnswers()">
+    </form>
+    <p id="result"></p>
+
+    <script>
+        function checkAnswers() {
+            var score = 0;
+            if (document.querySelector('input[name="q1"]:checked').value === "Falsch") score++;
+            if (document.querySelector('input[name="q2"]:checked').value === "Richtig") score++;
+            document.getElementById('result').innerText = "Du hast " + score + " von 2 richtig!";
+        }
+    </script>
+</body>
+</html>

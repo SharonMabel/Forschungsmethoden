@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explikation</title>
+</head>
+<body>
+    <h2>Explikation</h2>
+    <form id="quiz5">
+        <label>1. Solltest du deine Forschungsmethoden offenlegen?</label><br>
+        <input type="radio" name="q1" value="Ja"> Ja<br>
+        <input type="radio" name="q1" value="Nein"> Nein<br><br>
+
+        <label>2. Ist eine vollständige Sicherheit in der Forschung möglich?</label><br>
+        <input type="radio" name="q2" value="Ja"> Ja<br>
+        <input type="radio" name="q2" value="Nein"> Nein<br><br>
+
+        <label>3. Ist es wichtig, dass andere Forscher deine Schritte nachvollziehen können?</label><br>
+        <input type="radio" name="q3" value="Ja"> Ja<br>
+        <input type="radio" name="q3" value="Nein"> Nein<br><br>
+
+        <input type="button" value="Antworten prüfen" onclick="checkAnswers()">
+    </form>
+    <p id="result"></p>
+
+    <script>
+        function checkAnswers() {
+            var score = 0;
+            if (document.querySelector('input[name="q1"]:checked').value === "Ja") score++;
+            if (document.querySelector('input[name="q2"]:checked').value === "Nein") score++;
+            if (document.querySelector('input[name="q3"]:checked').value === "Ja") score++;
+            document.getElementById('result').innerText = "Du hast " + score + " von 3 richtig!";
+        }
+    </script>
+</body>
+</html>

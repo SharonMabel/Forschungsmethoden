@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forschung als Kommunikation</title>
+</head>
+<body>
+    <h2>Forschung als Kommunikation</h2>
+    <form id="quiz1">
+        <label>1. Was symbolisiert die Bindung zwischen dem Forscher und dem Forschungsgegenstand?</label><br>
+        <input type="radio" name="q1" value="A"> Eine störende Barriere<br>
+        <input type="radio" name="q1" value="B"> Eine notwendige Verbindung<br>
+        <input type="radio" name="q1" value="C"> Eine zufällige Begegnung<br><br>
+
+        <label>2. Wie sollte sich ein Forscher der Welt nähern, die er erforscht?</label><br>
+        <input type="radio" name="q2" value="A"> Mit vorgefassten Meinungen<br>
+        <input type="radio" name="q2" value="B"> Als Teil der Welt<br>
+        <input type="radio" name="q2" value="C"> Mit Distanz<br><br>
+
+        <input type="button" value="Antworten prüfen" onclick="checkAnswers()">
+    </form>
+    <p id="result"></p>
+
+    <script>
+        function checkAnswers() {
+            var score = 0;
+            var quiz = document.getElementById('quiz1');
+            if (quiz.q1.value === "B") score++;
+            if (quiz.q2.value === "B") score++;
+            document.getElementById('result').innerText = "Du hast " + score + " von 2 richtig!";
+        }
+    </script>
+</body>
+</html>
