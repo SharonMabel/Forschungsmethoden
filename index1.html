@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -12,15 +12,14 @@
         <input type="radio" name="q1" value="A"> Eine störende Barriere<br>
         <input type="radio" name="q1" value="B"> Eine notwendige Verbindung<br>
         <input type="radio" name="q1" value="C"> Eine zufällige Begegnung<br><br>
-
         <label>2. Wie sollte sich ein Forscher der Welt nähern, die er erforscht?</label><br>
         <input type="radio" name="q2" value="A"> Mit vorgefassten Meinungen<br>
         <input type="radio" name="q2" value="B"> Als Teil der Welt<br>
         <input type="radio" name="q2" value="C"> Mit Distanz<br><br>
-
         <input type="button" value="Antworten prüfen" onclick="checkAnswers()">
     </form>
     <p id="result"></p>
+    <a id="returnLink" href="#">Zurück zum Spiel</a>
 
     <script>
         function checkAnswers() {
@@ -30,7 +29,25 @@
             if (quiz.q2.value === "B") score++;
             document.getElementById('result').innerText = "Du hast " + score + " von 2 richtig!";
         }
+
+        // Funktion zum Auslesen von URL-Parametern
+        function getParameterByName(name, url = window.location.href) {
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        // URL des Zurück-Links setzen
+        var returnTo = getParameterByName('returnTo');
+        var returnLink = document.getElementById('returnLink');
+        if (returnTo === 'Bettler') {
+            returnLink.href = 'https://sharonmabel.github.io/Forschungsmethoden/Forschungsmethoden.html#Bettler';
+        } else {
+            returnLink.href = 'https://sharonmabel.github.io/Forschungsmethoden/Forschungsmethoden.html';
+        }
     </script>
-  <a href="https://sharonmabel.github.io/Forschungsmethoden/Forschungsmethoden.html#Bettler">Zurück zum Spiel</a>
 </body>
 </html>
