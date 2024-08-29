@@ -64,6 +64,7 @@
             var returnLink = document.getElementById('returnLink');
             if (score === 5) {
                 returnLink.style.display = 'inline'; // Link sichtbar machen
+                window.location.href = returnLink.href; // Automatische Weiterleitung
             } else {
                 returnLink.style.display = 'none'; // Link ausblenden
             }
