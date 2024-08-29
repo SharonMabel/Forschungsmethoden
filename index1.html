@@ -6,43 +6,21 @@
     <title>Forschung als Kommunikation</title>
     <style>
         #returnLink {
-            display: none; /* Link anfangs ausblenden */
+            display: none;
         }
     </style>
 </head>
 <body>
     <h2>Forschung als Kommunikation</h2>
     <form id="quiz1">
-        <label>1. Wie wird Forschung in Bezug auf die Interaktion beschrieben?</label><br>
-        <input type="radio" name="q1" value="B"> Als ein zentraler Bestandteil des Forschungsprozesses<br>
-        <input type="radio" name="q1" value="A"> Als eine störende Nebenwirkung<br>
-        <input type="radio" name="q1" value="C"> Als irrelevant für die Forschung<br>
-        <input type="radio" name="q1" value="D"> Als eine einmalige Gelegenheit<br><br>
-        
-        <label>2. Was ist entscheidend, damit die untersuchte soziale Einheit authentisch bleibt?</label><br>
-        <input type="radio" name="q2" value="B"> Die Einheit sollte sich natürlich und unbeeinflusst äußern können<br>
-        <input type="radio" name="q2" value="A"> Die Forscher müssen keine Fragen stellen<br>
-        <input type="radio" name="q2" value="C"> Die Forscher sollten ständig eingreifen<br>
-        <input type="radio" name="q2" value="D"> Die Einheit muss sich anstrengen, um „authentisch“ zu sein<br><br>
-        
-        <label>3. Wie sollte die Kommunikationssituation in der Forschung gestaltet sein?</label><br>
-        <input type="radio" name="q3" value="B"> Möglichst nah an den alltäglichen Kommunikationsregeln<br>
-        <input type="radio" name="q3" value="A"> Möglichst formal und strikt von alltäglichen Regeln abweichend<br>
-        <input type="radio" name="q3" value="C"> Möglichst spontan und ungeplant<br>
-        <input type="radio" name="q3" value="D"> Möglichst unstrukturiert und chaotisch<br><br>
-        
-        <label>4. Warum ist die Interaktionsbeziehung zwischen Forscher und zu Erforschendem wichtig?</label><br>
-        <input type="radio" name="q4" value="B"> Weil sie den Forschungsprozess beeinflusst und prägt<br>
-        <input type="radio" name="q4" value="A"> Weil sie die Forschungsergebnisse unzuverlässig macht<br>
-        <input type="radio" name="q4" value="C"> Weil sie keinen Einfluss auf den Forschungsprozess hat<br>
-        <input type="radio" name="q4" value="D"> Weil sie die Forschung ausschließlich auf theoretische Aspekte beschränkt<br><br>
-        
-        <label>5. Was sollte vermieden werden, um die Authentizität der untersuchten Einheit zu gewährleisten?</label><br>
-        <input type="radio" name="q5" value="B"> Die Einheit sollte sich bewusst verändern<br>
-        <input type="radio" name="q5" value="A"> Forscher sollten neutral bleiben<br>
-        <input type="radio" name="q5" value="C"> Die Forscher sollten ihre eigenen Meinungen zurückhalten<br>
-        <input type="radio" name="q5" value="D"> Die Forscher sollten den Alltag der Einheit imitieren<br><br>
-        
+        <label>1. Was symbolisiert die Bindung zwischen dem Forscher und dem Forschungsgegenstand?</label><br>
+        <input type="radio" name="q1" value="A"> Eine störende Barriere<br>
+        <input type="radio" name="q1" value="B"> Eine notwendige Verbindung<br>
+        <input type="radio" name="q1" value="C"> Eine zufällige Begegnung<br><br>
+        <label>2. Wie sollte sich ein Forscher der Welt nähern, die er erforscht?</label><br>
+        <input type="radio" name="q2" value="A"> Mit vorgefassten Meinungen<br>
+        <input type="radio" name="q2" value="B"> Als Teil der Welt<br>
+        <input type="radio" name="q2" value="C"> Mit Distanz<br><br>
         <input type="button" value="Antworten prüfen" onclick="checkAnswers()">
     </form>
     <p id="result"></p>
@@ -53,23 +31,15 @@
             var quiz = document.getElementById('quiz1');
             if (quiz.q1.value === "B") score++;
             if (quiz.q2.value === "B") score++;
-            if (quiz.q3.value === "B") score++;
-            if (quiz.q4.value === "B") score++;
-            if (quiz.q5.value === "B") score++;
-
-            var resultText = "Du hast " + score + " von 5 richtig!";
-            document.getElementById('result').innerText = resultText;
-
-            // Link anzeigen, wenn alle Fragen richtig beantwortet wurden
+            document.getElementById('result').innerText = "Du hast " + score + " von 2 richtig!";
+            
             var returnLink = document.getElementById('returnLink');
-            if (score === 5) {
-                returnLink.style.display = 'inline'; // Link sichtbar machen
-                window.location.href = returnLink.href; // Automatische Weiterleitung
-            } else {
-                returnLink.style.display = 'none'; // Link ausblenden
+            if (score === 2) {
+                returnLink.style.display = 'inline';
+                window.location.href = returnLink.href; // Automatische Weiterleitung zur korrekten Seite
             }
         }
-
+        
         function getParameterByName(name, url = window.location.href) {
             name = name.replace(/[\[\]]/g, '\\$&');
             var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
@@ -78,7 +48,7 @@
             if (!results[2]) return '';
             return decodeURIComponent(results[2].replace(/\+/g, ' '));
         }
-
+        
         var returnTo = getParameterByName('returnTo');
         var returnLink = document.getElementById('returnLink');
         if (returnTo === 'Bettler2') {
