@@ -20,7 +20,6 @@
     </form>
     <p id="result"></p>
     <a id="returnLink" href="#">Zurück zum Spiel</a>
-
     <script>
         function checkAnswers() {
             var score = 0;
@@ -29,7 +28,6 @@
             if (quiz.q2.value === "B") score++;
             document.getElementById('result').innerText = "Du hast " + score + " von 2 richtig!";
         }
-
         // Funktion zum Auslesen von URL-Parametern
         function getParameterByName(name, url = window.location.href) {
             name = name.replace(/[\[\]]/g, '\\$&');
@@ -39,7 +37,6 @@
             if (!results[2]) return '';
             return decodeURIComponent(results[2].replace(/\+/g, ' '));
         }
-
         // URL des Zurück-Links setzen
         var returnTo = getParameterByName('returnTo');
         var returnLink = document.getElementById('returnLink');
